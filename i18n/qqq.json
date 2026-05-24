@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"MediaWiki contributors"
+		]
+	},
+	"contributionanalytics-desc": "{{desc|name=ContributionAnalytics|url=https://www.mediawiki.org/wiki/Extension:ContributionAnalytics}}",
+	"contributionanalytics": "Special page title.",
+	"contributionanalytics-loading": "Shown while chart data is loading.",
+	"contributionanalytics-error": "Shown when chart data cannot be loaded.",
+	"contributionanalytics-no-data": "Shown when no cached analytics data exists.",
+	"contributionanalytics-invalid-date": "Error message shown when a user-supplied start or end date is not a valid calendar date. Parameters:\n* $1 - the invalid date value as supplied by the user",
+	"contributionanalytics-range-too-large": "Error message shown when the requested date range exceeds the per-bucket maximum.",
+	"contributionanalytics-edits": "Metric label for edit counts.",
+	"contributionanalytics-editors": "Metric label for editor counts.",
+	"contributionanalytics-threshold-users": "Metric label for users meeting an edit threshold. Parameters:\n* $1 - the minimum edit count",
+	"contributionanalytics-date-start": "Label for start date input.",
+	"contributionanalytics-date-end": "Label for end date input.",
+	"contributionanalytics-bucket": "Label for bucket selector.",
+	"contributionanalytics-metric": "Label for metric selector.",
+	"contributionanalytics-threshold": "Label for edit threshold input.",
+	"contributionanalytics-day": "Day bucket option.",
+	"contributionanalytics-month": "Month bucket option.",
+	"contributionanalytics-anonymous-users": "Chart series label for anonymous users.",
+	"contributionanalytics-registered-users": "Chart series label for registered users.",
+	"contributionanalytics-total": "Chart series label for the total across user types.",
+	"contributionanalytics-tiles-title": "Heading for the contribution tile output.",
+	"contributionanalytics-tiles-user-title": "Heading for the contribution tile output when filtered to one user. Parameters:\n* $1 - user name",
+	"contributionanalytics-tiles-summary": "Summary text for the contribution tile output. Parameters:\n* $1 - number of edits in the past year",
+	"contributionanalytics-tiles-edit-count": "Tooltip text for a single contribution tile. Parameters:\n* $1 - number of edits on the day",
+	"contributionanalytics-tiles-less": "Label for the low end of the contribution tile intensity legend.",
+	"contributionanalytics-tiles-more": "Label for the high end of the contribution tile intensity legend.",
+	"apihelp-contributionanalytics-summary": "{{doc-apihelp-summary|contributionanalytics}}",
+	"apihelp-contributionanalytics-param-metric": "{{doc-apihelp-param|contributionanalytics|metric}}",
+	"apihelp-contributionanalytics-param-bucket": "{{doc-apihelp-param|contributionanalytics|bucket}}",
+	"apihelp-contributionanalytics-param-start": "{{doc-apihelp-param|contributionanalytics|start}}",
+	"apihelp-contributionanalytics-param-end": "{{doc-apihelp-param|contributionanalytics|end}}",
+	"apihelp-contributionanalytics-param-threshold": "{{doc-apihelp-param|contributionanalytics|threshold}}",
+	"apihelp-contributionanalytics-example-threshold": "{{doc-apihelp-example|contributionanalytics}}"
+}

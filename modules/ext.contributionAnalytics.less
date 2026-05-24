@@ -1,0 +1,50 @@
+@import 'mediawiki.skin.variables.less';
+
+.mw-contributionanalytics {
+	max-width: 1100px;
+
+	.mw-contributionanalytics-controls {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: @spacing-75;
+		margin-bottom: @spacing-100;
+
+		label {
+			display: flex;
+			flex-direction: column;
+			gap: @spacing-25;
+		}
+
+		select,
+		input,
+		button {
+			min-height: 32px;
+		}
+	}
+
+	.mw-contributionanalytics-chart-wrap {
+		position: relative;
+		height: 420px;
+	}
+
+	.mw-contributionanalytics-status {
+		padding: @spacing-100;
+		color: @color-subtle;
+	}
+}
+
+/* Override Codex defaults */
+.mw-contributionanalytics {
+	.cdx-text-input,
+	.cdx-select-vue__handle {
+		min-width: unset;
+	}
+
+	.cdx-select-vue {
+		width: 100%;
+	}
+
+	.cdx-field {
+		margin-top: 0;
+	}
+}

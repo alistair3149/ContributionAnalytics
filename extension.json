@@ -1,0 +1,133 @@
+{
+	"name": "ContributionAnalytics",
+	"author": [
+		"[https://github.com/lihaohong6 lihaohong6]"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:ContributionAnalytics",
+	"version": "0.1.0",
+	"descriptionmsg": "contributionanalytics-desc",
+	"license-name": "GPL-3.0-or-later",
+	"type": "specialpage",
+	"requires": {
+		"MediaWiki": ">= 1.45.0"
+	},
+	"MessagesDirs": {
+		"ContributionAnalytics": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"ContributionAnalyticsAliases": "ContributionAnalytics.alias.php",
+		"ContributionAnalyticsMagic": "ContributionAnalytics.i18n.magic.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\ContributionAnalytics\\": "includes/",
+		"MediaWiki\\Extension\\ContributionAnalytics\\Maintenance\\": "maintenance/"
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"callback": "MediaWiki\\Extension\\ContributionAnalytics\\Hooks\\Hooks::onRegistration",
+	"SpecialPages": {
+		"ContributionAnalytics": {
+			"class": "MediaWiki\\Extension\\ContributionAnalytics\\Specials\\SpecialContributionAnalytics"
+		}
+	},
+	"APIModules": {
+		"contributionanalytics": {
+			"class": "MediaWiki\\Extension\\ContributionAnalytics\\Api\\ApiContributionAnalytics",
+			"services": [
+				"ContributionAnalytics.Store"
+			]
+		}
+	},
+	"RateLimits": {
+		"contributionanalytics": {
+			"ip": [
+				20,
+				60
+			],
+			"user": [
+				60,
+				60
+			]
+		}
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "main",
+		"PageSaveComplete": "main",
+		"LoadExtensionSchemaUpdates": {
+			"handler": "Installer"
+		}
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\ContributionAnalytics\\Hooks\\Hooks",
+			"services": [
+				"ContributionAnalytics.Store",
+				"UserFactory",
+				"ActorNormalization",
+				"DBLoadBalancer"
+			]
+		},
+		"Installer": {
+			"class": "MediaWiki\\Extension\\ContributionAnalytics\\Hooks\\Installer"
+		}
+	},
+	"ResourceModules": {
+		"ext.contributionAnalytics.chart": {
+			"scripts": "ext.contributionAnalytics.chart.js"
+		},
+		"ext.contributionAnalytics.app": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"packageFiles": [
+				"ext.contributionAnalytics.app.js"
+			],
+			"codexComponents": [
+				"CdxField",
+				"CdxSelect",
+				"CdxTextInput",
+				"CdxMessage"
+			],
+			"styles": "ext.contributionAnalytics.less",
+			"dependencies": [
+				"ext.contributionAnalytics.chart",
+				"mediawiki.api",
+				"mediawiki.util",
+				"vue"
+			],
+			"messages": [
+				"contributionanalytics-loading",
+				"contributionanalytics-error",
+				"contributionanalytics-no-data",
+				"contributionanalytics-edits",
+				"contributionanalytics-editors",
+				"contributionanalytics-threshold-users",
+				"contributionanalytics-date-start",
+				"contributionanalytics-date-end",
+				"contributionanalytics-bucket",
+				"contributionanalytics-metric",
+				"contributionanalytics-threshold",
+				"contributionanalytics-day",
+				"contributionanalytics-month",
+				"contributionanalytics-anonymous-users",
+				"contributionanalytics-registered-users",
+				"contributionanalytics-total"
+			]
+		},
+		"ext.contributionAnalytics.tiles.styles": {
+			"styles": "ext.contributionAnalytics.tiles.less"
+		},
+		"ext.contributionAnalytics.tiles": {
+			"scripts": "ext.contributionAnalytics.tiles.js",
+			"dependencies": [
+				"ext.contributionAnalytics.tiles.styles"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "ContributionAnalytics/modules"
+	},
+	"manifest_version": 2
+}

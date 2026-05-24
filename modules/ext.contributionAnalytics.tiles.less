@@ -1,0 +1,138 @@
+@import 'mediawiki.skin.variables.less';
+@import 'mediawiki.mixins.less';
+
+.mw-contributionanalytics-tiles {
+	--ca-tile-size: 11px;
+	--ca-tile-gap: 3px;
+	--ca-tile-level-0: #ebedf0;
+	--ca-tile-level-1: #9be9a8;
+	--ca-tile-level-2: #40c463;
+	--ca-tile-level-3: #30a14e;
+	--ca-tile-level-4: #216e39;
+	display: inline-block;
+	max-width: 100%;
+	margin: 1em 0;
+	font-size: 12px;
+	line-height: 1.4;
+
+	.darkmode-override( {
+		--ca-tile-level-0: #161b22;
+		--ca-tile-level-1: #033a16;
+		--ca-tile-level-2: #196c2e;
+		--ca-tile-level-3: #2ea043;
+		--ca-tile-level-4: #56d364;
+	} );
+}
+
+.mw-contributionanalytics-tiles-heading {
+	margin-bottom: 6px;
+	font-weight: 600;
+}
+
+.mw-contributionanalytics-tiles-grid {
+	display: grid;
+	grid-auto-columns: var( --ca-tile-size );
+	grid-auto-flow: column;
+	grid-template-rows: repeat( 7, var( --ca-tile-size ) );
+	gap: var( --ca-tile-gap );
+	max-width: 100%;
+	overflow-x: auto;
+	padding-bottom: 2px;
+}
+
+.mw-contributionanalytics-tile,
+.mw-contributionanalytics-tile-spacer {
+	width: var( --ca-tile-size );
+	height: var( --ca-tile-size );
+	border-radius: 2px;
+	box-sizing: border-box;
+}
+
+.mw-contributionanalytics-tile-level-0 {
+	background: var( --ca-tile-level-0 );
+}
+
+.mw-contributionanalytics-tile-level-1 {
+	background: var( --ca-tile-level-1 );
+}
+
+.mw-contributionanalytics-tile-level-2 {
+	background: var( --ca-tile-level-2 );
+}
+
+.mw-contributionanalytics-tile-level-3 {
+	background: var( --ca-tile-level-3 );
+}
+
+.mw-contributionanalytics-tile-level-4 {
+	background: var( --ca-tile-level-4 );
+}
+
+.mw-contributionanalytics-tile[ data-mw-ca-tooltip ] {
+	cursor: default;
+}
+
+.mw-contributionanalytics-tiles-footer,
+.mw-contributionanalytics-tiles-legend {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+}
+
+.mw-contributionanalytics-tiles-footer {
+	justify-content: space-between;
+	margin-top: 6px;
+	color: @color-subtle;
+}
+
+.mw-contributionanalytics-tile-tooltip {
+	position: fixed;
+	z-index: 1000;
+	max-width: 260px;
+	--ca-tooltip-arrow-left: 50%;
+	padding: 6px 8px;
+	border-radius: 3px;
+	background: #101418; // @background-color-inverted but it's fixed
+	box-shadow: 0 2px 6px rgba( 0, 0, 0, 0.3 );
+	color: @color-inverted-fixed;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.4;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 80ms ease-in-out;
+	white-space: nowrap;
+}
+
+.mw-contributionanalytics-tile-tooltip::after {
+	position: absolute;
+	left: var( --ca-tooltip-arrow-left );
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	content: '';
+	transform: translateX( -50% );
+}
+
+.mw-contributionanalytics-tile-tooltip-above::after {
+	top: 100%;
+	border-top-color: #101418; // @background-color-inverted but it's fixed
+	border-bottom: 0;
+}
+
+.mw-contributionanalytics-tile-tooltip-below::after {
+	bottom: 100%;
+	border-top: 0;
+	border-bottom-color: @background-color-inverted;
+}
+
+.mw-contributionanalytics-tile-tooltip-visible {
+	opacity: 1;
+}
+
+@media ( max-width: 480px ) {
+	.mw-contributionanalytics-tiles {
+		--ca-tile-size: 9px;
+		--ca-tile-gap: 2px;
+	}
+}

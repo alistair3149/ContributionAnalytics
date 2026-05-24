@@ -1,0 +1,40 @@
+[
+	{
+		"name": "ca_daily_actor_edits",
+		"columns": [
+			{
+				"name": "cad_date",
+				"type": "binary",
+				"options": { "notnull": true, "length": 8 }
+			},
+			{
+				"name": "cad_actor",
+				"type": "bigint",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "cad_actor_user",
+				"type": "integer",
+				"options": { "notnull": false, "unsigned": true }
+			},
+			{
+				"name": "cad_edit_count",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "cad_actor_date",
+				"columns": [ "cad_actor", "cad_date" ],
+				"unique": false
+			},
+			{
+				"name": "cad_date_actor_user",
+				"columns": [ "cad_date", "cad_actor_user" ],
+				"unique": false
+			}
+		],
+		"pk": [ "cad_date", "cad_actor" ]
+	}
+]

@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"MediaWiki contributors"
+		]
+	},
+	"contributionanalytics-desc": "Provides statistics and charts of wiki contribution activity.",
+	"contributionanalytics": "Contribution analytics",
+	"contributionanalytics-loading": "Loading data...",
+	"contributionanalytics-error": "Could not load contribution analytics data.",
+	"contributionanalytics-no-data": "No contribution analytics data is available.",
+	"contributionanalytics-invalid-date": "\"$1\" is not a valid date. Please provide a date in YYYY-MM-DD or YYYYMMDD format.",
+	"contributionanalytics-range-too-large": "The date range may not exceed $1 {{PLURAL:$1|year|years}} for the \"$2\" bucket.",
+	"contributionanalytics-edits": "Edits",
+	"contributionanalytics-editors": "Editors",
+	"contributionanalytics-threshold-users": "Users with at least $1 edits",
+	"contributionanalytics-date-start": "Start date",
+	"contributionanalytics-date-end": "End date",
+	"contributionanalytics-bucket": "Bucket",
+	"contributionanalytics-metric": "Metric",
+	"contributionanalytics-threshold": "Edit threshold",
+	"contributionanalytics-day": "Day",
+	"contributionanalytics-month": "Month",
+	"contributionanalytics-anonymous-users": "Anonymous users",
+	"contributionanalytics-registered-users": "Registered users",
+	"contributionanalytics-total": "Total edits",
+	"contributionanalytics-tiles-title": "Contribution activity",
+	"contributionanalytics-tiles-user-title": "Contribution activity of $1",
+	"contributionanalytics-tiles-summary": "$1 {{PLURAL:$1|edit|edits}} total",
+	"contributionanalytics-tiles-edit-count": "$1 {{PLURAL:$1|edit|edits}}",
+	"contributionanalytics-tiles-less": "Less",
+	"contributionanalytics-tiles-more": "More",
+	"apihelp-contributionanalytics-summary": "Get cached historical contribution analytics.",
+	"apihelp-contributionanalytics-param-metric": "Metric to return.",
+	"apihelp-contributionanalytics-param-bucket": "Date bucket.",
+	"apihelp-contributionanalytics-param-start": "Start date in YYYY-MM-DD.",
+	"apihelp-contributionanalytics-param-end": "End date in YYYY-MM-DD.",
+	"apihelp-contributionanalytics-param-threshold": "Minimum edits per bucket for threshold mode.",
+	"apihelp-contributionanalytics-example-threshold": "Get monthly counts of users with at least five edits in 2024."
+}
