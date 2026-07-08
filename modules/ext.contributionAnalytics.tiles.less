@@ -1,6 +1,14 @@
 @import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins.less';
 
+.tiles-dark() {
+	--ca-tile-level-0: #161b22;
+	--ca-tile-level-1: #033a16;
+	--ca-tile-level-2: #196c2e;
+	--ca-tile-level-3: #2ea043;
+	--ca-tile-level-4: #56d364;
+}
+
 .mw-contributionanalytics-tiles {
 	--ca-tile-size: 11px;
 	--ca-tile-gap: 3px;
@@ -15,13 +23,17 @@
 	font-size: 12px;
 	line-height: 1.4;
 
-	.darkmode-override( {
-		--ca-tile-level-0: #161b22;
-		--ca-tile-level-1: #033a16;
-		--ca-tile-level-2: #196c2e;
-		--ca-tile-level-3: #2ea043;
-		--ca-tile-level-4: #56d364;
-	} );
+	@media screen {
+		html.skin-theme-clientpref-night & {
+			.tiles-dark;
+		}
+	}
+
+	@media screen and ( prefers-color-scheme: dark ) {
+		html.skin-theme-clientpref-os & {
+			.tiles-dark;
+		}
+	}
 }
 
 .mw-contributionanalytics-tiles-heading {
