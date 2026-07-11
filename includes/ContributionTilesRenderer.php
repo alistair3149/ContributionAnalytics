@@ -122,22 +122,26 @@ class ContributionTilesRenderer {
 
 	private function makeLegend(): string {
 		$legend = Html::element(
-			'span',
+			'div',
 			[],
 			$this->parser->msg( 'contributionanalytics-tiles-less' )->text()
 		);
+
+		$legend .= Html::openElement( 'div', [ 'class' => 'mw-contributionanalytics-tiles-legend-levels' ] );
 		for ( $level = 0; $level <= 4; $level++ ) {
-			$legend .= Html::element( 'span', [
+			$legend .= Html::element( 'div', [
 				'class' => "mw-contributionanalytics-tile mw-contributionanalytics-tile-level-$level",
 				'aria-hidden' => 'true',
 			], '' );
 		}
+		$legend .= Html::closeElement( 'div' );
+
 		$legend .= Html::element(
-			'span',
+			'div',
 			[],
 			$this->parser->msg( 'contributionanalytics-tiles-more' )->text()
 		);
 
-		return Html::rawElement( 'span', [ 'class' => 'mw-contributionanalytics-tiles-legend' ], $legend );
+		return Html::rawElement( 'div', [ 'class' => 'mw-contributionanalytics-tiles-legend' ], $legend );
 	}
 }
