@@ -80,7 +80,7 @@
 
 	&-tile,
 	&-tile-spacer {
-		border-radius: 2px;
+		border-radius: @border-radius-base;
 	}
 
 	&-tile {
@@ -126,6 +126,7 @@
 			opacity: 0;
 			pointer-events: none;
 			transition: opacity @transition-duration-medium @transition-timing-function-system;
+			white-space: nowrap;
 
 			&-visible {
 				opacity: 1;
